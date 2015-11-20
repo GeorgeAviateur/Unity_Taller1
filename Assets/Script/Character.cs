@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
+using System;
 public class Character : MonoBehaviour {
 
 	private Rigidbody rb;
-	public float speed;
+	public GameSettings gameSettings;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -20,10 +21,7 @@ public class Character : MonoBehaviour {
 
 
 		Vector3 movment= new Vector3(moveHorizontal,0.0f,moveVertical);
+		rb.AddForce (movment * gameSettings.speed);
 
-
-
-
-		rb.AddForce (movment * speed);
 	}
 }

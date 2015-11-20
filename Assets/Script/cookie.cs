@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class cookie : MonoBehaviour {
-	void onTriggerEnter(Collider other){
+	public Action touched;
+
+
+	void OnTriggerEnter(Collider other){
 		gameObject.SetActive(false);
-		Debug.Log ("MM que rica galleta :P");
+		if (touched != null)
+			touched ();
+
 	}
-	void Update(){}
+
 
 }
